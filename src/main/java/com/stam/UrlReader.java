@@ -17,11 +17,6 @@ import java.util.stream.Collectors;
 
 public class UrlReader {
 
-    private final Parser parser;
-    public UrlReader(Parser parser) {
-        this.parser = parser;
-    }
-
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
@@ -38,7 +33,6 @@ public class UrlReader {
                 .content(readContent(url)).build()
             )
             .filter(p -> p.getContent() != null)
-            .map(p -> p.toBuilder().content(parser.parse(p.getContent())).build())
         .collect(Collectors.toMap(Pair::getUrl, Pair::getContent, (k1,k2) -> k1));
     }
 

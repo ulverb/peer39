@@ -21,7 +21,7 @@ class UrlReaderTest {
     );
     @Test
     void testNoParser() {
-        final Map<String, String> read = new UrlReader(content -> content).read(url);
+        final Map<String, String> read = new UrlReader().read(url);
         read.forEach((key, value) -> {
             assertThat(key).isIn(url);
             assertThat(value).isNotBlank();
