@@ -43,14 +43,4 @@ public class CategoryLookup {
         }
         return found;
     }
-
-    private static Set<String> categories(Node node, String[] words, int i, Set<String> acc) {
-        String word = words[i];
-        if (!node.hasNext(word.toLowerCase())) {
-            acc.addAll(node.getCategories());
-            return acc;
-        }
-        acc.addAll(node.getCategories());
-        return categories(node.next(word.toLowerCase()), words, i+1, acc);
-    }
 }
