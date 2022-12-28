@@ -7,7 +7,7 @@ public class Model {
     Node root;
 
     public Model(Map<String, List<String>> data) {
-        root = new Node(null);
+        root = new Node();
         for(Map.Entry<String, List<String>> e : data.entrySet()) {
             String category = e.getKey();
             for (String phrase : e.getValue()) {

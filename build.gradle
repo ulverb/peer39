@@ -15,7 +15,7 @@ dependencies {
 
     testCompileOnly 'org.projectlombok:lombok:1.18.16'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
-
+    implementation group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.67.0'
     implementation("org.apache.httpcomponents.client5:httpclient5-fluent:5.2.1")
     implementation("org.apache.commons:commons-lang3:3.12.0")
     implementation group: 'org.jsoup', name: 'jsoup', version: '1.15.3'

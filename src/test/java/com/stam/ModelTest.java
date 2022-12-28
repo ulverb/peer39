@@ -16,6 +16,7 @@ class ModelTest {
         Map<String, List<String>> map = new HashMap<>();
         map.put("star", Arrays.asList("star", "star sky"));
         map.put("star wars", Arrays.asList("star", "star wars", "hello"));
+        map.put("Islands sky", Arrays.asList("sky", "islands"));
 
         final Model model = new Model(map);
 
