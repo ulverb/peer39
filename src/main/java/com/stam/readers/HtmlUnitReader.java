@@ -2,16 +2,8 @@ package com.stam.readers;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.DomNode;
-import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 @Slf4j
 public class HtmlUnitReader implements ContentReader {
@@ -19,7 +11,7 @@ public class HtmlUnitReader implements ContentReader {
     public String read(String url) {
         try (WebClient client = new WebClient(BrowserVersion.CHROME)){
             client.getOptions().setCssEnabled(false);
-            client.getOptions().setJavaScriptEnabled(true);
+            client.getOptions().setJavaScriptEnabled(false);
             client.getOptions().setThrowExceptionOnScriptError(false);
             client.getOptions().setFetchPolyfillEnabled(true);
             client.getOptions().setRedirectEnabled(true);

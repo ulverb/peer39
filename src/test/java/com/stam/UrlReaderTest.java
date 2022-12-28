@@ -34,7 +34,7 @@ class UrlReaderTest {
             assertThat(value.length()).isGreaterThan(0);
             System.out.println("--------------------------");
             System.out.println(key);
-            System.out.println(value.substring(0, Math.min(1000, value.length())));
+            System.out.println(value.substring(0, Math.min(100000, value.length())));
         });
     }
 
@@ -47,7 +47,7 @@ class UrlReaderTest {
             assertThat(value.length()).isGreaterThan(0);
             System.out.println("--------------------------");
             System.out.println(key);
-            System.out.println(value.substring(0, Math.min(1000, value.length())));
+            System.out.println(value.substring(0, Math.min(1000000, value.length())));
         });
     }
 }
