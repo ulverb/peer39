@@ -1,26 +1,32 @@
 package com.stam;
 
-import lombok.Data;
-import lombok.Getter;
-
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-@Data
-@Getter
-public class Node {
-    private Set<String> categories = new HashSet<>();
-    private Map<String, Node> inner = new HashMap<>();
+public class Node{
+    private final Set<String> categories;
+    private final Map<String, Node> inner;
 
+    public Node() {
+        this(new HashSet<>(), new ConcurrentHashMap<>());
+    }
+
+    private Node(Set<String> categories, Map<String, Node> inner) {
+        this.categories = categories;
+        this.inner = inner;
+    }
 
     public Node add(String word, String category) {
-        Node node = inner.get(word);
+        Objects.requireNonNull(word);
+        String lowerCase = word.toLowerCase();
+        Node node = inner.get(lowerCase);
         if (node == null) {
             node = new Node();
-            inner.put(word, node);
+            inner.put(lowerCase, node);
         }
-        if (category != null && !category.isBlank()) {
+        if (category != null && !category.trim().isEmpty()) {
             node.categories.add(category);
         }
         return node;
@@ -34,5 +40,20 @@ public class Node {
             sb.append(spaces).append(k).append(":\n").append(" ").append(spaces).append(v.toString(level+1)).append("\n");
         });
         return sb.toString();
+    }
+
+    public Set<String> getCategories() {
+        return new HashSet<>(categories);
+    }
+
+    public boolean hasNext(String word) {
+        return inner.containsKey(word);
+    }
+
+    public Node next(String word) {
+        Objects.requireNonNull(word);
+        String lowerCase = word.toLowerCase();
+        Node node = inner.get(lowerCase);
+        return new Node(node.categories, node.inner);
     }
 }
