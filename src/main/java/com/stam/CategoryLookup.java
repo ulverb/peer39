@@ -2,6 +2,7 @@ package com.stam;
 
 import java.util.*;
 
+// todo: part 2.1
 public class CategoryLookup {
     final Node root = new Node();
 
@@ -24,6 +25,7 @@ public class CategoryLookup {
         return root.toString(0);
     }
 
+    // todo: part 2.3
     public Set<String> findCategories(String content) {
         String[] words = content.split("[\\s\\n]");
         Set<String> found = new HashSet<>();

@@ -23,11 +23,9 @@ class UrlReaderTest {
             "https://www.starwars.com/news/everything-we-know-about-the-mandalorian"
     );
 
-    static final UrlReader urlReader = new UrlReader();
-
     @Test
     void testJsoup() {
-        final Map<String, String> read = urlReader.read(url, new JsoupReader());
+        final Map<String, String> read = UrlReader.read(url, new JsoupReader());
         read.forEach((key, value) -> {
             assertThat(key).isIn(url);
             assertThat(value).isNotBlank();
@@ -40,7 +38,7 @@ class UrlReaderTest {
 
     @Test
     void testHtmlUnit() {
-        final Map<String, String> read = urlReader.read(url, new HtmlUnitReader());
+        final Map<String, String> read = UrlReader.read(url, new HtmlUnitReader());
         read.forEach((key, value) -> {
             assertThat(key).isIn(url);
             assertThat(value).isNotBlank();

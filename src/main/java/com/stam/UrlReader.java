@@ -16,7 +16,7 @@ public class UrlReader {
         )
     );
 
-    public Map<String, String> read(List<String> urls, ContentReader reader) {
+    public static Map<String, String> read(List<String> urls, ContentReader reader) {
         return Optional.ofNullable(urls).orElseGet(ArrayList::new)
             .stream().map(url -> Pair.of(url, reader.read(url)))
             .filter(p -> p.getRight() != null)
