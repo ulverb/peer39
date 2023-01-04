@@ -1,10 +1,15 @@
-package com.stam;
+package com.targil;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * Node class represents the model for Categories and their Keywords
+ *
+ * Exercise: Part 2.1
+ */
 public class Node{
     private final Set<String> categories;
     private final Map<String, Node> inner;
@@ -32,16 +37,6 @@ public class Node{
         return node;
     }
 
-    public String toString(int level) {
-        StringBuilder sb = new StringBuilder();
-        final String spaces = IntStream.range(0, level).mapToObj(i -> "\t").collect(Collectors.joining());
-        sb.append(spaces).append("categories: ").append(categories).append("\n");
-        inner.forEach((k, v) -> {
-            sb.append(spaces).append(k).append(":\n").append(" ").append(spaces).append(v.toString(level+1)).append("\n");
-        });
-        return sb.toString();
-    }
-
     public Set<String> getCategories() {
         return new HashSet<>(categories);
     }
@@ -54,6 +49,17 @@ public class Node{
         Objects.requireNonNull(word);
         String lowerCase = word.toLowerCase();
         Node node = inner.get(lowerCase);
-        return new Node(node.categories, node.inner);
+        return node; //new Node(node.categories, node.inner);
+    }
+
+
+    public String toString(int level) {
+        StringBuilder sb = new StringBuilder();
+        final String spaces = IntStream.range(0, level).mapToObj(i -> "\t").collect(Collectors.joining());
+        sb.append(spaces).append("categories: ").append(categories).append("\n");
+        inner.forEach((k, v) -> {
+            sb.append(spaces).append(k).append(":\n").append(" ").append(spaces).append(v.toString(level+1)).append("\n");
+        });
+        return sb.toString();
     }
 }

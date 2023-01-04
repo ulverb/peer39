@@ -1,7 +1,7 @@
-package com.stam;
+package com.targil;
 
-import com.stam.readers.HtmlUnitReader;
-import com.stam.readers.JsoupReader;
+import com.targil.readers.HtmlUnitReader;
+import com.targil.readers.JsoupReader;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -13,13 +13,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class UrlReaderTest {
 
     static List<String> url = Arrays.asList(
-//            "http://www.msn.com/en-nz/travel/tripideas/70-of-the-planets-most-breathtaking-sights/ss-AAIUpDp",
-//            "https://www.radiosport.co.nz/sport-news/rugby/accident-or-one-last-dig-eddie-jones-reveals-hansens-next-job/",
-//            "https://www.glamour.de/frisuren/frisurenberatung/haarschnitte",
-//            "https://www3.forbes.com/business/2020-upcoming-hottest-new-vehicles/13/?nowelcome",
-//            "https://www.tvblog.it/post/1681999/valerio-fabrizio-salvatori-gli-inseparabili-chi-sono-pechino-express-2020",
-//            "http://edition.cnn.com/",
-//            "https://www.bbc.com",
+            "http://www.msn.com/en-nz/travel/tripideas/70-of-the-planets-most-breathtaking-sights/ss-AAIUpDp",
+            "https://www.radiosport.co.nz/sport-news/rugby/accident-or-one-last-dig-eddie-jones-reveals-hansens-next-job/",
+            "https://www.glamour.de/frisuren/frisurenberatung/haarschnitte",
+            "https://www3.forbes.com/business/2020-upcoming-hottest-new-vehicles/13/?nowelcome",
+            "https://www.tvblog.it/post/1681999/valerio-fabrizio-salvatori-gli-inseparabili-chi-sono-pechino-express-2020",
+            "http://edition.cnn.com/",
+            "https://www.bbc.com",
             "https://www.starwars.com/news/everything-we-know-about-the-mandalorian"
     );
 

@@ -1,4 +1,4 @@
-package com.stam;
+package com.targil;
 
 import lombok.*;
 
