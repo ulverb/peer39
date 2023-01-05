@@ -1,6 +1,7 @@
 package com.targil;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * The class initializes the model for the Categories and their Keywords
@@ -11,7 +12,7 @@ public class CategoryLookup {
     /**
      * Initialize the model for Categories and their Keywords
      *
-     * Complexity: categories * keywords * 6(max length of phrase in keyword)  = O(M*K*6)
+     * Complexity: number of categories * max keyword length * 6(max length of phrase in keyword)  = O(M*K*6)
      *
      * Exercise: Part 2.2
      */
@@ -30,14 +31,13 @@ public class CategoryLookup {
     }
 
     /**
-     * The method classifies the received text into appropriate categories.
+     * The method classifies the received text into matched categories.
      *
-     * Complexity:
+     * Complexity: text length * max keyword length  = O(N*K)
      *
      * Exercise: Part 2.3
      */
     public Set<String> findCategories(String text) {
-        int count = 0;
         String[] words = text.split("[\\s\\n]");
         Set<String> found = new HashSet<>();
         List<Node> nodes = new ArrayList<>();
@@ -52,14 +52,12 @@ public class CategoryLookup {
                     additional.add(nd.next(word));
                 }
                 found.addAll(nd.getCategories());
-
-                count +=1;
             }
             nodes.addAll(additional);
             nodes.removeAll(previous);
             previous = additional;
         }
-        System.out.println(count);
+        previous.forEach(entry -> {found.addAll(entry.getCategories());});
         return found;
     }
 

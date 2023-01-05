@@ -29,6 +29,7 @@ public class MainFlowTest {
         relevantCategories.add("Basketball");
 
         Map<String, Set<String>> result;
+
         Runner.loadAllCategories();
         Runner runner = new Runner();
         result  = runner.classify(relevantCategories, urls);

@@ -49,9 +49,8 @@ public class Node{
         Objects.requireNonNull(word);
         String lowerCase = word.toLowerCase();
         Node node = inner.get(lowerCase);
-        return node; //new Node(node.categories, node.inner);
+        return node;
     }
-
 
     public String toString(int level) {
         StringBuilder sb = new StringBuilder();

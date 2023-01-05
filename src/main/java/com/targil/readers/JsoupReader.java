@@ -24,7 +24,7 @@ public class JsoupReader implements ContentReader {
             return body.stream().filter(el -> el.hasText()).map(el -> el.text()).collect(Collectors.joining("\t"));
         } catch (IOException e) {
 
-            log.error("HtmlUnitReader: Failed to get data for url - " + url, e);
+            log.error("JsoupReader: Failed to get data for url - " + url, e);
             return null;
         }
     }
